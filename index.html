@@ -3,38 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Invitation</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Wedding Invitation | Omkar & Sanchi</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&display=swap">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: url('bg2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Card Container */
+        .container {
+            background: rgba(44, 11, 11, 0.8);  /* Semi-transparent dark background */
+            padding: 50px;
+            border: 2px solid gold;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+            max-width: 600px;
+            position: relative;
+        }
+
+        /* Title */
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.8em;
+            color: gold;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: #f5d395;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #f1c27d;
+            margin-bottom: 10px;
+        }
+
+        /* Countdown */
+        .countdown {
+            font-size: 1.5em;
+            font-weight: bold;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px auto;
+            color: gold;
+            border: 1px solid gold;
+        }
+
+        /* Location Button */
+        .map-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 1.2em;
+            color: #3e0808;
+            background: gold;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: 0.3s ease;
+        }
+
+        .map-btn:hover {
+            background: #d4af37;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 20px;
+            font-size: 1em;
+            color: gold;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="background"></div>
-    <div class="overlay"></div>
-
     <div class="container">
-        <h1 id="greeting">You're Invited!</h1>
-        <h2 id="bride-groom">Sagar & Ankita's Wedding</h2>
-        <p id="wedding-date">Sunday, February 23, 2025</p>
+        <h1>✨ Wedding Invitation ✨</h1>
+        <h2>Omkar 🤵 & Sanchi 👰</h2>
+        <p><strong>Wedding:</strong> March 2, 2025, at 11:00 AM</p>
 
-        <div id="countdown" class="countdown"></div>
-        
-        <div>
-            <h3 class="my-5">Wedding Details</h3>
-            <p>
-                <strong>Venue:</strong> Gokul Tarf Patan, Satara
-            </p>
-            <p>
-                <strong>Time:</strong> Ceremony at 5:00 PM, Reception at 7:00 PM
-            </p>
-        </div>
+        <div id="countdown" class="countdown">Counting Down...</div>
 
-        <a href="https://maps.app.goo.gl/bJ5qcrZwq1ehk4Vy8" target="_blank" class="map-btn">View Location</a>
+        <h2>Venue: GLORIA BANQUET HALL</h2>
+        <p>Ovala Naka, Ghodbunder Rd, Thane West, Maharashtra</p>
+
+        <a href="https://maps.app.goo.gl/vGGHPQ5zuLk1ZvoHA" target="_blank" class="map-btn">📍 View Location</a>
 
         <footer>
-            <p id="footer-text">We look forward to celebrating with you! ❤️</p>
+            <p>We look forward to celebrating with you! ❤️ #OmiचीSanchi</p>
         </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function updateCountdown() {
+            const weddingDate = new Date("March 2, 2025 11:00:00").getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "🎉 The Celebration Begins! 🎉";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = `${days} Days ${hours} Hours ${minutes} Min ${seconds} Sec`;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+
 </body>
 </html>
