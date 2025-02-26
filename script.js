@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
     }
 
-    setInterval(updateCountdown, 1000);
+    setInterval(updateCountdown, 1500);
     updateCountdown();
 
     toggleButton.addEventListener("click", () => {
