@@ -5,13 +5,15 @@
     box-sizing: border-box;
 }
 
+/* Body Styling */
 body {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     background: url('bg2.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background-size: cover; /* Ensures image covers the entire body */
+    background-position: center;
     color: #fff;
     text-align: center;
     font-family: 'Playfair Display', serif;
@@ -82,4 +84,34 @@ footer {
     margin-top: 20px;
     font-size: 1em;
     color: gold;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    /* Ensures background image fits well on mobile */
+    body {
+        background-size: cover; /* Ensures image maintains good size */
+        background-position: center; /* Keeps image centered */
+    }
+
+    .container {
+        padding: 20px; /* Adjust padding on mobile for a tighter layout */
+    }
+
+    /* Adjust Countdown Text Size on Mobile */
+    .countdown {
+        font-size: 1.2em;
+    }
+
+    h1 {
+        font-size: 2.2em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    p {
+        font-size: 1em;
+    }
 }
